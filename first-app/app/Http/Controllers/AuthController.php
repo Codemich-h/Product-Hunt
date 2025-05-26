@@ -32,7 +32,7 @@ class AuthController extends Controller
         if($user) {
             // dd($user);
         if(Hash::check($request->password, $user->password)) {
-                return redirect()->to('dashboard');   
+                return redirect()->route('home.index');   
     
             } else {
                 return redirect()->route('login')->with('error', 'Invalid password.');

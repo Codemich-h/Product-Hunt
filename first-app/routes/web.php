@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 
 
@@ -25,10 +26,18 @@ use App\Http\Controllers\ProductController;
 // Route::get('/', function() {
 //     return view('auth.login'); 
 // });
-Route::get('/', [AuthController::class, 'showLogin'])->name('login.account');
-// Register Post Routes
-Route::post('/', [AuthController::class, 'login'])->name('login');
+// Route::get('/login', [AuthController::class, 'showLogin'])->name('login.account');
+// // Register Post Routes
+// Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login',  'showLogin')->name('login.account');
+    Route::post('/login', 'login')->name('login');
+});
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home.index');
+});
 
 //Register Route
 Route::get('/register', [AuthController::class, 'showRegister'])->name('create.account');
