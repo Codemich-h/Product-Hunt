@@ -37,6 +37,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
+    Route::get('/about', 'about')->name('home.about');
 });
 
 //Register Route
