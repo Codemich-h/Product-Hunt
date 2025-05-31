@@ -4,11 +4,13 @@
     <div class="row">
         <div class="flex items-center justify-center">
             <div class="w-full px-4 py-12 2xl:mx-auto 2xl:container sm:px-6 xl:px-20 2xl:px-0">
-                <div class="flex flex-col items-center space-y-10 jusitfy-center">
-                    <div class="flex flex-col items-center justify-center ">
-                        <h1 class="text-3xl font-semibold leading-7 text-gray-800 xl:text-4xl xl:leading-9 dark:text-white">
+
+                <div class="flex flex-col items-center justify-center ">
+                        <h1 class="text-3xl mb-4 font-semibold leading-7 text-gray-800 xl:text-4xl xl:leading-9 dark:text-white">
                             Shop By Category</h1>
                     </div>
+                <div class="flex flex-col items-center space-y-10 jusitfy-center">
+                    
                     <div class="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-8">
                         <div class="relative flex items-center justify-center w-full h-full group">
                             <img class="object-cover object-center w-full h-full"

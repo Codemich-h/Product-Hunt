@@ -38,6 +38,13 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home.index');
     Route::get('/about', 'about')->name('home.about');
+    Route::get('/contact', 'contact')->name('home.contact');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product', 'show')->name('show.product');
+    Route::get('/add.product', 'index')->name('home.index.product');
+    Route::post('/store.product', 'store')->name('store.product');
 });
 
 //Register Route

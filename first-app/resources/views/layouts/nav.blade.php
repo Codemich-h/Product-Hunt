@@ -38,9 +38,10 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                        <a href="{{ route('home.index') }}"
+                            class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                             aria-current="page">Home</a>
-                        <a href="#"
+                        <a href="{{ route('show.product') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Product</a>
                         <a href="#"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Cart</a>
@@ -49,22 +50,18 @@
                             Order</a>
                         <a href="{{ route('home.about') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-                        <a href="#"
+                        <a href="{{ route('home.contact') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">contact</a>
+                        <a href="{{ route('home.index.product') }}"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                            Add
+                        </a>
                         {{-- <a href="route('product/1')" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 ml-90">Add Product</a>
                --}}
-                          @guest
-                            <a href="{{ route('login') }}"
-                                class="rounded-md px-8 py-2 ml-70 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Login</a>
-                            <a href="{{ route('register') }}"
-                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Register</a>
-                        @else
-                            <form action="{{ route('logout') }}" method="POST">
-                                <a role="button" href=""
-                                    onclick="document.getElementById('logout').submit();">Logout</a>
-                                @csrf
-                            </form>
-                        @endguest
+                        <a href="{{ route('login') }}"
+                            class="rounded-md px-8 py-2 ml-70 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Login</a>
+                        <a href="{{ route('register') }}"
+                            class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Register</a>
                     </div>
 
                 </div>

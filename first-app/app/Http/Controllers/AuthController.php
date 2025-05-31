@@ -70,7 +70,7 @@ class AuthController extends Controller
         //Authentication
         Auth::login($user);
         // Redirect the user to the dashboard after registration
-        return redirect()->to('dashboard');
+        return redirect()->route('home.index');
     }
 
     
