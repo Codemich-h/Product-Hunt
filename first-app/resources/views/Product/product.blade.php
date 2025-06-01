@@ -40,7 +40,9 @@
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ $product->getProductName()}}
+                                    <a href="{{ route('view.product', ['id'=> $product->getId()]) }}">
+                                        {{ $product->getProductName()}}
+                                    </a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $product->getDescription()}}
