@@ -32,7 +32,7 @@ class AuthController extends Controller
         if($user) {
             // dd($user);
         if(Hash::check($request->password, $user->password)) {
-                return redirect()->route('home.index');   
+                return redirect()->to('dashboard');   
     
             } else {
                 return redirect()->route('login')->with('error', 'Invalid password.');
@@ -42,9 +42,6 @@ class AuthController extends Controller
             return redirect()->route('login')->with('error', 'The account does not exist.');
         }
     }
-
-
-    
 
     // Display register view
     public function showRegister()
@@ -70,7 +67,7 @@ class AuthController extends Controller
         //Authentication
         Auth::login($user);
         // Redirect the user to the dashboard after registration
-        return redirect()->route('home.index');
+        return redirect()->to('dashboard');
     }
 
     

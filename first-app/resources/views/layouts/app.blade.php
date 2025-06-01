@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        @include('layouts.partial._nav')
+        @include('layouts.nav')
         @yield('content')
     </div>
 </body>

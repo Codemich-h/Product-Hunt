@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 
 
@@ -26,27 +25,10 @@ use App\Http\Controllers\ProductController;
 // Route::get('/', function() {
 //     return view('auth.login'); 
 // });
-// Route::get('/login', [AuthController::class, 'showLogin'])->name('login.account');
-// // Register Post Routes
-// Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'showLogin'])->name('login.account');
+// Register Post Routes
+Route::post('/', [AuthController::class, 'login'])->name('login');
 
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/login',  'showLogin')->name('login.account');
-    Route::post('/login', 'login')->name('login');
-});
-
-Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('home.index');
-    Route::get('/about', 'about')->name('home.about');
-    Route::get('/contact', 'contact')->name('home.contact');
-});
-
-Route::controller(ProductController::class)->group(function () {
-    Route::get('/product', 'show')->name('show.product');
-    Route::get('/add.product', 'add')->name('home.add.product');
-    Route::post('/store.product', 'store')->name('store.product');
-    Route::get('/view.product{id}', 'view')->name('view.product');
-});
 
 //Register Route
 Route::get('/register', [AuthController::class, 'showRegister'])->name('create.account');
@@ -58,5 +40,6 @@ Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('u
 
 
 // Product Route
+
 Route::get('/product/{id}', [ProductController::class, 'store']);
 
