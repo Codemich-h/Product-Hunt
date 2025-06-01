@@ -52,7 +52,7 @@
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
                         <a href="{{ route('home.contact') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">contact</a>
-                        <a href="{{ route('home.index.product') }}"
+                        <a href="{{ route('home.add.product') }}"
                             class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
                             Add
                         </a>

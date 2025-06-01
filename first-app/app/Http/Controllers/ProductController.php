@@ -8,18 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-
-    public function index()
-    {
-        return view('layouts.addProduct');
-    }
-
     public function show()
     {
         $viewData = [];
         $viewData['title'] = 'Home: Shopping Made Easy';
         $viewData['description'] = 'Online shop';
         $viewData['products'] = Product::all();
+        $viewData['products'] = Product::orderBy('id', 'desc')->paginate(4);
 
         // dd(Product::all());
         return view('product.product', $viewData)->with('viewData', $viewData);
@@ -34,6 +29,11 @@ class ProductController extends Controller
         $viewData['product'] = $product;
 
         return view('product.viewProduct', $viewData)->with('viewData', $viewData);
+    }
+
+    public function add()
+    {
+        return view('layouts.addProduct');
     }
 
     public static function store(Request $request)

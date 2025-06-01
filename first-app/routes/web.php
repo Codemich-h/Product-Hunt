@@ -43,7 +43,7 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product', 'show')->name('show.product');
-    Route::get('/add.product', 'index')->name('home.index.product');
+    Route::get('/add.product', 'add')->name('home.add.product');
     Route::post('/store.product', 'store')->name('store.product');
     Route::get('/view.product{id}', 'view')->name('view.product');
 });

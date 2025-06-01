@@ -61,7 +61,7 @@
                         </tbody>
                     </table>
                 </div>
-
+                <p class= "flex bg-blue-500 flexbox mt-4"> {{$viewData['products']->links()}}</p>
             </div>
         </div>
     </div>
