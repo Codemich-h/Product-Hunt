@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -11,15 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    public static function validate(Request $request)
-    { 
-        $request->validate([
-            'product_name' => 'required|string|max:255',
-            'description' => 'required|min:15',
-            'image' => 'required|image',
-            'price' => 'required|numeric|min:2',
-        ]);
-    }
+    protected $guarded=[];
 
     public function setItems($items)
     {

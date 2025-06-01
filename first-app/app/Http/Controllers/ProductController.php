@@ -38,24 +38,36 @@ class ProductController extends Controller
 
     public static function store(Request $request)
     {
-        Product::validate($request);
+        // $request->validate([
+        //     'product_name' => 'required|string|max:255',
+        //     'description' => 'required|min:15',
+        //     'image' => 'required|image',
+        //     'price' => 'required|numeric|min:2',
+        // ]);
+        // Product::validate($request);
+
 
         $newProduct = new Product();
-        $newProduct->setProductName($request->input('name'));
+        $newProduct->setProductName($request->input('product_name'));
         $newProduct->setDescription($request->input('description'));
+        $newProduct->setImage($request->input('image'));
         $newProduct->setPrice($request->input('price'));
-        $newProduct->setPrice($request->input('price'));
-
+        $newProduct->save();
         // dd('test');
 
         if($request->hasFile('image')) {
             $imageName = $newProduct->getId().'.'.$request->file('image')->getClientOriginalExtension();
             Storage::disk('public')->put($imageName, file_get_contents($request->file('image')->getRealPath()));
             $newProduct->setImage($imageName);
-            $newProduct->save();
+            $newProduct->update();
 
-            return view('home.index');
         }
-        return back()-with('error', 'Product created successfully, but image not uploaded');
+        return back()->with('Successfully');
     }
+
+    // public function edit($id)
+    // {
+    //     $viewData = [];
+    //     $viewData['ti']
+    // }
 }
