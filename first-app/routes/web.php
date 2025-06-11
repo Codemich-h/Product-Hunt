@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -43,11 +44,17 @@ Route::controller(HomeController::class)->group(function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product', 'show')->name('show.product');
-    Route::get('/add.product', 'add')->name('home.add.product');
-    Route::post('/store.product', 'store')->name('store.product');
-    Route::get('/view.product/{id}', 'view')->name('view.product');
-    Route::get('/edit.product/{id}/edit', 'edit')->name('edit.product');
-    Route::get('/update.product/{id}/update', 'edit')->name('update.product');
+    Route::get('/add/product', 'add')->name('home.add.product');
+    Route::post('/store/product', 'store')->name('store.product');
+    Route::get('/product/{id}/view', 'view')->name('view.product');
+    Route::get('/product/{id}/edit', 'edit')->name('edit.product');
+    Route::put('/product/{id}/update', 'update')->name('update.product');
+    Route::get('/product/{id}/delete', 'delete')->name('delete.product');
+});
+
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart/index', 'index')->name('cart.index');
+    Route::post('/cart/add/{id}', 'add')->name('cart.add');
 });
 
 //Register Route
