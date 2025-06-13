@@ -97,7 +97,7 @@ class Product extends Model
         $this->attributes['updated_at'] = $updated_at;
     }
 
-    public function sumPriceByQuantities($products, $productsInSession){
+    public static function sumPricesByQuantities($products, $productsInSession){
         $total = 0;
         foreach ($products as $product) {
             $total = $total + ($product->getPrice()  * $productsInSession[$product->getId()]);
