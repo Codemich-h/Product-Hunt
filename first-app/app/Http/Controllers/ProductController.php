@@ -38,7 +38,6 @@ class ProductController extends Controller
 
     public static function store(Request $request)
     {
-        dd('test');
         $request->validate([
             'product_name' => 'required|string|max:255',
             'description' => 'required|min:15',

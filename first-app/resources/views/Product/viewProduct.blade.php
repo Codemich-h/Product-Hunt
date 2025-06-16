@@ -70,24 +70,23 @@
                 <p class="text-1xl mr-96 font-extrabold leading-tight text-gray-900 dark:text-white">
                     {{ $viewData['product']->getDescription() }}</p>
             </div>
-            <form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}">
-<form method="POST" action="{{ route('cart.add', ['id'=> $viewData['product']->getId()]) }}">
-<div class="row"> @csrf
-<div class="col-auto">
-<div class="col-auto input-group">
-<div class="input-group-text">Quantity</div>
-<input type="number" min="1" max="10" class="form-control quantity-input" name="quantity" value="1"> </div>
-</div>
-<div class="col-auto">
-<button class="text-black btn bg-primary" type="submit">Add to cart</button> </div>
-</div> 
-</form>
+            <form method="POST" action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}">
+                <form method="POST" action="{{ route('cart.add', ['id' => $viewData['product']->getId()]) }}">
+                    <div class="row"> @csrf
+                        <div class="col-auto">
+                            <div class="col-auto input-group mt-1">
+                                <div class="input-group-text">Quantity</div>
+                                <input type="number" min="1" max="10" class="form-control quantity-input border-rounded mb-4 mt-4 border-1 border-gray-600 focus:ring-black"
+                                    name="quantity" value="1">
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit"
+                                class="py-2 px-3 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-900">Add
+                                to cart</button>
+                        </div>
+                    </div>
+                </form>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
     </div>
 @endsection

@@ -45,7 +45,12 @@
         <div class="text-end mr-60 mt-12">
             <a class="mb-2 btn btn-outline-secondary"><b>Total to pay: </b>${{ $viewData["total"]}}</a>
             @if(count($viewData['product'])>0)
-            <a href=""></a>
+            <a href="{{ route('cart.purchase')}}" class="mb-2 text-black btn bg-primary">
+                <button type="submit" class="ml-20 py-2 px-3 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-900">Buy Now</button>
+            </a>
+            <a href="{{ route('cart.delete')}}">
+                <button type="submit" class="ml-20 py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:focus:ring-red-900">Remove all products from cart</button>
+            </a>
             @endif
         </div>
     </div>
