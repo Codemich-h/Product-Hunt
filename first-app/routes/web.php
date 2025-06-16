@@ -55,17 +55,15 @@ Route::controller(ProductController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart/index', 'index')->name('cart.index');
     Route::post('/cart/add/{id}', 'add')->name('cart.add');
+    Route::get('/cart/delete', 'delete')->name('cart.delete');
+    Route::get('/cart/purchase', 'purchase')->name('cart.purchase');
 });
 
 //Register Route
 Route::get('/register', [AuthController::class, 'showRegister'])->name('create.account');
 //Register Post Routes
 Route::post('/register', [AuthController::class, 'store'])->name('register');
-
-
 Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('user.dashboard');
-
-
 // Product Route
 Route::get('/product/{id}', [ProductController::class, 'store']);
 
